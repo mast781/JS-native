@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { sum } from './03-function/03';
+
+let a = sum;
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
