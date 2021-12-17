@@ -1,5 +1,5 @@
 import {CityType} from "../02-objects/02_02";
-import {addMoneyToBudget} from "./03";
+import {addMoneyToBudget, createMessage, repairHouse, toFireStaff, toHireStaff} from "./03";
 
 let city: CityType;
 
@@ -53,26 +53,46 @@ beforeEach(() => {
         citizensNumber: 1000000
     }
 })
-    
+
 // 01. создайте в отдельном файле функцию, чтобы тесты прошли
-test("Budget should be changed for HOSPITAL ", () => {
-    addMoneyToBudget(city.governmentBuildings[0],  100000);
-    
+test("Budget should be changed for HOSPITAL", () => {
+    addMoneyToBudget(city.governmentBuildings[0], 100000);
+
     expect(city.governmentBuildings[0].budget).toBe(300000)
 })
 
 // 01. Тесты должны пройти
-test("Budget should be changed for FIRE-STATION ", () => {
-    addMoneyToBudget(city.governmentBuildings[1],  -100000);
+test("Budget should be changed for FIRE-STATION", () => {
+    addMoneyToBudget(city.governmentBuildings[1], -100000);
 
     expect(city.governmentBuildings[1].budget).toBe(400000)
 })
+// 01. создайте в том же файле еще одну функцию, чтобы тесты прошли
+test("House should be repaired", () => {
+    repairHouse(city.houses[1]);
 
-// 01. дополните тип HouseType (добавьте порядковый id от 1 и по возрастанию)
-// 02. создайте в том же файле еще одну функцию
-test("Houses should be destroyed", () => {
-    demolishHousesOnTheStreet(city, "Happy street");
+    expect(city.houses[1].repaired).toBeTruthy();
+})
 
-    expect(city.houses.length).toBe(1);
-    expect(city.houses[0].id).toBe(1)
+// 01. создайте в том же файле еще одну функцию, чтобы тесты прошли
+test("staff should be increased", () => {
+    toFireStaff(city.governmentBuildings[0], 20);
+
+    expect(city.governmentBuildings[0].staffCount).toBe(180);
+})
+
+// 01. создайте в том же файле еще одну функцию, чтобы тесты прошли
+test("Hose should be repaired", () => {
+    toHireStaff(city.governmentBuildings[0], 20);
+    toHireStaff(city.governmentBuildings[1], 100);
+
+    expect(city.governmentBuildings[0].staffCount).toBe(220);
+    expect(city.governmentBuildings[1].staffCount).toBe(1100);
+})
+
+// 01. создайте в том же файле еще одну функцию, чтобы тесты прошли
+test("Greeting message should be correct for city", () => {
+    //const message = createMessage(city);
+
+    expect(createMessage(city)).toBe("Hello New York citizens. I want you be happy. All 1000000 men.");
 })
