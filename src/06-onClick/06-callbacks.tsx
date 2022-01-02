@@ -8,11 +8,15 @@ window.setTimeout(callback, 1000)*/
 export const User = () => {
 
     const deleteUser = () => {
-        alert("user should be deleted")
+        alert("user have be deleted")
+    }
+
+    const saveUser = () => {
+        alert("user shave be saved")
     }
 
     return <div>Dimych
-        <button>delete</button>
-        <button>save</button>
+        <button onClick={deleteUser}>delete</button>
+        <button onClick={saveUser}>save</button>
     </div>
 }
