@@ -1,19 +1,4 @@
-type LessonType = {
-    title: string
-}
-
-
-type ManType = {
-    name: string
-    age: number
-    lessons: Array<LessonType>
-    // lessons: Array<{title:string}> аналогично записи выше, иногда позволительно, но лучше выносить в отдельный тип
-    address: {
-        street: {
-            title: string
-        }
-    }
-}
+import {ManType} from "./destructuring";
 
 let props: ManType;
 beforeEach(() => {
