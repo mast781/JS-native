@@ -1,3 +1,5 @@
+import {users} from "./08_01.test";
+
 export const usersObj = {
     '0': 'Dimych',
     '1': 'Natasha',
@@ -5,22 +7,13 @@ export const usersObj = {
     '3': 'Katya'
 }
 
-export type UsersType = {
-    [key: string]: {id: number, name: string}
-}
-
-export const users: UsersType = {
-    '101': {id: 101, name: 'Dimych'},
-    '3232312': {id: 3232312, name: 'Natasha'},
-    '1212': {id: 1212, name: 'Valera'},
-    '1': {id: 1, name: 'Katya'}
-}
 
 // users[1]
 
 let user = {id: 100500, name: 'Igor'}
-users[user.id] = user // добавление
+users[user.id] = user // добавление (если юзер с таким id уже есть, то работает, как обновление)
 delete users[user.id] // удаление
+users[user.id].name = "Vitya" // обновление
 
 
 export const usersArray = [
