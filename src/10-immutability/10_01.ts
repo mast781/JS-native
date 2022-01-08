@@ -45,3 +45,13 @@ export function moveUser(u: UserWithLaptopType, city: string) {
         }
     }
 }
+
+export function upgradeLaptop(u: UserWithLaptopType, modelLaptop: string) {
+    return {
+        ...u,
+        laptop: {
+            ...u.laptop,
+            title: modelLaptop
+        }
+    }
+}
